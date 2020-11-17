@@ -2,13 +2,11 @@ const slider = new Vue({
   el: '#slider',
   data: {
     imagesList: ['img/image1.jpg','img/image2.jpg','img/image3.jpg','img/image4.jpg'],
-    imagesIndex: 0
+    imagesIndex: 0,
+    keyCode: ''
   },
   methods: {
     sliderPrev: function(){
-
-      console.log('imagesIndex: ', this.imagesIndex);
-      console.log('imagesList: ', this.imagesList);
       if (this.imagesIndex === 0){
         this.imagesIndex = this.imagesList.length - 1;
       } else {
@@ -21,6 +19,18 @@ const slider = new Vue({
       } else {
         this.imagesIndex++;
       }
+    },
+    keyDown: function(){
+      if (this.keyCode === 'ArrowLeft'){
+        this.sliderPrev()
+      } else if (this.keyCode === 'ArrowRight'){
+        this.sliderNext()
+      }
     }
   }
+});
+
+window.addEventListener('keydown', function(e) {
+  slider.keyCode = e.key
+  slider.keyDown()
 });

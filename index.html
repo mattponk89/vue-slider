@@ -10,7 +10,7 @@
     </head>
     <body>
         <div id="slider" class="container">
-            <div class="slider-wrapper">
+            <div v-on:keyup.left='sliderPrev()' v-on:keyup.right='sliderNext()' class="slider-wrapper">
                 <div @click="sliderPrev()" class="prev">
                     <i class="fas fa-angle-left"></i>
                 </div>
@@ -26,3 +26,4 @@
         <script src="main.js"></script>
     </body>
 </html>
+v-on:keyup.enter=
