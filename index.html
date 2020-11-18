@@ -22,8 +22,8 @@
                 </div>
                 <div class="nav">
                     <template v-for="(el, index) in imagesList" >
-                      <i v-if="index == imagesIndex" class="fas fa-circle active" @click="imagesIndex = index"></i>
-                      <i v-else class="fas fa-circle" @click="imagesIndex = index"></i>
+                      <i :class="{active: (index == imagesIndex)}" class="fas fa-circle" @click="imagesIndex = index"></i>
+
                     </template>
                 </div>
             </div>
