@@ -10,7 +10,7 @@
     </head>
     <body>
         <div id="slider" class="container">
-            <div v-on:keyup.left='sliderPrev()' v-on:keyup.right='sliderNext()' class="slider-wrapper">
+            <div class="slider-wrapper">
                 <div @click="sliderPrev()" class="prev">
                     <i class="fas fa-angle-left"></i>
                 </div>
@@ -20,9 +20,14 @@
                 <div @click="sliderNext()" class="next">
                     <i class="fas fa-angle-right"></i>
                 </div>
+                <div class="nav">
+                    <template v-for="(el, index) in imagesList" >
+                      <i v-if="index == imagesIndex" class="fas fa-circle active" @click="imagesIndex = index"></i>
+                      <i v-else class="fas fa-circle" @click="imagesIndex = index"></i>
+                    </template>
+                </div>
             </div>
         </div>
-
         <script src="main.js"></script>
     </body>
 </html>
